@@ -8,7 +8,6 @@ void mostrarMaquinaTuring() {
     return;
 }
 
-
 char *definirPeloPadrao(char *entrada, char padr) {
     int i;
     char *saida;
@@ -27,15 +26,12 @@ char *definirPeloPadrao(char *entrada, char padr) {
 
 int main() {
     int i;
-    char padrao = 'L';
+    char padrao = 'R';
     char* maquina;
     
     maquina = (char *) malloc(sizeof(char) * TAMANHO);
 
     maquina = definirPeloPadrao(maquina, padrao);
-    // for(i = 0; i < TAMANHO; i++){
-    //     maquina[i] = padrao;
-    // }
 
     printf("Maquina de Turing\n");
 
