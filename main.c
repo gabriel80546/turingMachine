@@ -38,15 +38,30 @@ char *definirPeloPadrao(char *entrada, char padr) {
     return saida;
 }
 
+void mostrarInstrucao(Instrucao *inst) {
+
+    printf("inst = %p\n", inst);
+    printf("inst->conteudo = \'%c\' \n", inst->conteudo);
+    return;
+}
+
 int main() {
     int i;
     char padrao = '_';
     int posicao = (int)(TAMANHO/2);
     char* fita;
+    Instrucao *a;
 
+    a = (Instrucao *)malloc(sizeof(Instrucao) * 1);
+    a->lado = 1;
+    a->conteudo = 'a';
+    a->estado = -1;
+    a->proximoEstado = 3;
+    mostrarInstrucao(a);
     fita = (char *) malloc(sizeof(char) * TAMANHO);
     fita = definirPeloPadrao(fita, padrao);
     mostrarFitaTuring(fita);
     free(fita);
+    free(a);
     return 0;
 }
