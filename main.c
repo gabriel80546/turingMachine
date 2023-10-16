@@ -21,7 +21,7 @@ char *definirPeloPadrao(char *entrada, char padr) {
 
     saida = (char *) malloc(sizeof(char) * TAMANHO);
     if(entrada == NULL) {
-        printf("Erro variavel com erro, provavelmente NULL");
+        printf("Erro variavel com erro, provavelmente NULL\n");
         exit(1);
     }
     free(entrada);
