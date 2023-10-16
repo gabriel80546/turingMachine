@@ -4,7 +4,14 @@
 
 #define TAMANHO 100
 
-void mostrarMaquinaTuring() {
+void mostrarFitaTuring(char *fita) {
+    int i;
+
+    printf("Fita:\n\"");
+    for(i = 0; i < TAMANHO; i++) {
+        printf("%c", fita[i]);
+    }
+    printf("\"\n");
     return;
 }
 
@@ -27,18 +34,11 @@ char *definirPeloPadrao(char *entrada, char padr) {
 int main() {
     int i;
     char padrao = 'R';
-    char* maquina;
+    char* fita;
     
-    maquina = (char *) malloc(sizeof(char) * TAMANHO);
-
-    maquina = definirPeloPadrao(maquina, padrao);
-
-    printf("Maquina de Turing\n");
-
-    for(i = 0; i < TAMANHO; i++) {
-        printf("maquina[%i] = '%c'\n", i, maquina[i]);
-    }
-
-    free(maquina);
+    fita = (char *) malloc(sizeof(char) * TAMANHO);
+    fita = definirPeloPadrao(fita, padrao);
+    mostrarFitaTuring(fita);
+    free(fita);
     return 0;
 }
