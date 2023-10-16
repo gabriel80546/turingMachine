@@ -4,14 +4,21 @@
 
 #define TAMANHO 100
 
+typedef struct Instrucao {
+    int lado;
+    char conteudo;
+    int estado;
+    int proximoEstado;
+} Instrucao;
+
 void mostrarFitaTuring(char *fita) {
     int i;
 
     printf("Fita:\n\"");
-    for(i = 0; i < TAMANHO; i++) {
-        printf("%c", fita[i]);
+    for(i = 0; i < (TAMANHO - 1); i++) {
+        printf("%c ", fita[i]);
     }
-    printf("\"\n");
+    printf("%c\"\n", fita[i]);
     return;
 }
 
@@ -33,9 +40,10 @@ char *definirPeloPadrao(char *entrada, char padr) {
 
 int main() {
     int i;
-    char padrao = 'R';
+    char padrao = '_';
+    int posicao = (int)(TAMANHO/2);
     char* fita;
-    
+
     fita = (char *) malloc(sizeof(char) * TAMANHO);
     fita = definirPeloPadrao(fita, padrao);
     mostrarFitaTuring(fita);
