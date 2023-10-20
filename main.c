@@ -30,17 +30,19 @@ void mostrarInstrucao(Instrucao *inst) {
     }
     printf("inst = %p\n", inst);
     printf("inst->lado = %i\n", inst->lado);
-    // printf("inst->escreva = \'%c\'\n", inst->);
+    printf("inst->leia = \'%c\'\n", inst->leia);
     printf("inst->escreva = \'%c\'\n", inst->escreva);
     printf("inst->estado = %i\n", inst->estado);
     printf("inst->proximoEstado = %i\n", inst->proximoEstado);
     return;
 }
 
-Instrucao *initInstrucao(int lado, char escreva, int estado, int proximoEstado) {
+Instrucao *initInstrucao(int lado, char leia, char escreva, int estado, int proximoEstado) {
     Instrucao *saida;
+
     saida = (Instrucao *)malloc(sizeof(Instrucao) * 1);
     saida->lado = lado;
+    saida->leia = leia;
     saida->escreva = escreva;
     saida->estado = estado;
     saida->proximoEstado = proximoEstado;
@@ -78,9 +80,9 @@ int main() {
     Instrucao *b;
     Instrucao *c;
 
-    a = initInstrucao(1, 'a', -1, 3);
-    b = initInstrucao(1, 'a', -1, 3);
-    c = initInstrucao(1, 'a', -1, 3);
+    a = initInstrucao(1, '0', 'a', -1, 3);
+    b = initInstrucao(1, '0', 'a', -1, 3);
+    c = initInstrucao(1, '0', 'a', -1, 3);
     fita = initFita(TAMANHO, padrao);
 
     mostrarInstrucao(a);
