@@ -5,9 +5,10 @@
 #define TAMANHO 300
 
 typedef struct Instrucao {
-    int lado;
-    char conteudo;
     int estado;
+    int lado; // 0 esquerda, 1 direita
+    char leia;
+    char escreva;
     int proximoEstado;
 } Instrucao;
 
@@ -23,19 +24,24 @@ void mostrarFitaTuring(char *fita) {
 }
 
 void mostrarInstrucao(Instrucao *inst) {
-
+    if(inst == NULL) {
+        printf("ponteiro inst, na funcao mostrarInstrucao esta NULL\n");
+        exit(1);
+    }
     printf("inst = %p\n", inst);
-    
-    // Instrucao *initInstrucao(int lado, char conteudo, int estado, int proximoEstado) {
-    printf("inst->conteudo = \'%c\' \n", inst->conteudo);
+    printf("inst->lado = %i\n", inst->lado);
+    // printf("inst->escreva = \'%c\'\n", inst->);
+    printf("inst->escreva = \'%c\'\n", inst->escreva);
+    printf("inst->estado = %i\n", inst->estado);
+    printf("inst->proximoEstado = %i\n", inst->proximoEstado);
     return;
 }
 
-Instrucao *initInstrucao(int lado, char conteudo, int estado, int proximoEstado) {
+Instrucao *initInstrucao(int lado, char escreva, int estado, int proximoEstado) {
     Instrucao *saida;
     saida = (Instrucao *)malloc(sizeof(Instrucao) * 1);
     saida->lado = lado;
-    saida->conteudo = conteudo;
+    saida->escreva = escreva;
     saida->estado = estado;
     saida->proximoEstado = proximoEstado;
     return saida;
@@ -52,20 +58,37 @@ char *initFita(int tamanho, char padrao) {
     return saida;
 }
 
+// typedef struct Instrucao {
+//     int estado;
+//     int lado; // 0 esquerda, 1 direita
+//     char escreva;
+//     int proximoEstado;
+// } Instrucao;
+// Instrucao *initInstrucao(int lado, char escreva, int estado, int proximoEstado) {
+
+//      A       B       C
+// 0    1R B    0R C    1L C
+// 1	1R H_   1R B    1L A
 int main() {
     int i;
     char padrao = '0';
     int posicao = (int)(TAMANHO/2);
     char* fita;
     Instrucao *a;
+    Instrucao *b;
+    Instrucao *c;
 
     a = initInstrucao(1, 'a', -1, 3);
+    b = initInstrucao(1, 'a', -1, 3);
+    c = initInstrucao(1, 'a', -1, 3);
     fita = initFita(TAMANHO, padrao);
 
     mostrarInstrucao(a);
-    // mostrarFitaTuring(fita);
+    mostrarFitaTuring(fita);
 
     free(fita);
     free(a);
+    free(b);
+    free(c);
     return 0;
 }
