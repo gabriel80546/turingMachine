@@ -76,16 +76,22 @@ int main() {
     char padrao = '0';
     int posicao = (int)(TAMANHO/2);
     char* fita;
-    Instrucao *a;
-    Instrucao *b;
-    Instrucao *c;
+    Instrucao *a0;
+    Instrucao *a1;
+    Instrucao *b0;
+    Instrucao *b1;
+    Instrucao *c0;
+    Instrucao *c1;
 
-    a = initInstrucao(1, '0', '1', -1, 3);
-    b = initInstrucao(1, '0', '1', -1, 3);
-    c = initInstrucao(1, '0', '1', -1, 3);
+    a0 = initInstrucao(1, '0', '1', -1, 3);
+    b0 = initInstrucao(1, '0', '1', -1, 3);
+    c0 = initInstrucao(1, '0', '1', -1, 3);
+    a1 = initInstrucao(1, '0', '1', -1, 3);
+    b1 = initInstrucao(1, '0', '1', -1, 3);
+    c1 = initInstrucao(1, '0', '1', -1, 3);
     fita = initFita(TAMANHO, padrao);
 
-    mostrarInstrucao(a);
+    mostrarInstrucao(a0);
     mostrarFitaTuring(fita);
 
     while(1) {
@@ -93,8 +99,11 @@ int main() {
     }
 
     free(fita);
-    free(a);
-    free(b);
-    free(c);
+    free(a0);
+    free(b0);
+    free(c0);
+    free(a1);
+    free(b1);
+    free(c1);
     return 0;
 }
