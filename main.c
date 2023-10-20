@@ -22,22 +22,6 @@ void mostrarFitaTuring(char *fita) {
     return;
 }
 
-char *definirPeloPadrao(char *entrada, char padr) {
-    int i;
-    char *saida;
-
-    saida = (char *) malloc(sizeof(char) * TAMANHO);
-    if(entrada == NULL) {
-        printf("Erro variavel com erro, provavelmente NULL\n");
-        exit(1);
-    }
-    free(entrada);
-    for(i = 0; i < TAMANHO; i++) {
-        saida[i] = padr;
-    }
-    return saida;
-}
-
 void mostrarInstrucao(Instrucao *inst) {
 
     printf("inst = %p\n", inst);
@@ -54,6 +38,7 @@ Instrucao *initInstrucao(int lado, char conteudo, int estado, int proximoEstado)
     saida->proximoEstado = proximoEstado;
     return saida;
 }
+
 char *initFita(int tamanho, char padrao) {
     int i;
     char *saida;
