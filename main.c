@@ -63,6 +63,7 @@ char *initFita(int tamanho, char padrao) {
 // typedef struct Instrucao {
 //     int estado;
 //     int lado; // 0 esquerda, 1 direita
+//     char leia;
 //     char escreva;
 //     int proximoEstado;
 // } Instrucao;
