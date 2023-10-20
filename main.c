@@ -47,7 +47,7 @@ void mostrarInstrucao(Instrucao *inst) {
 
 int main() {
     int i;
-    char padrao = '_';
+    char padrao = '0';
     int posicao = (int)(TAMANHO/2);
     char* fita;
     Instrucao *a;
