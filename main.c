@@ -54,6 +54,16 @@ Instrucao *initInstrucao(int lado, char conteudo, int estado, int proximoEstado)
     saida->proximoEstado = proximoEstado;
     return saida;
 }
+char *initFita(int tamanho, char padrao) {
+    int i;
+    char *saida;
+
+    saida = (char *)malloc(sizeof(char) * tamanho);
+    for(i = 0; i < tamanho; i++) {
+        saida[i] = padrao;
+    }
+    return saida;
+}
 
 int main() {
     int i;
@@ -62,17 +72,12 @@ int main() {
     char* fita;
     Instrucao *a;
 
-    a = initInstrucao(1, 'e', -1, 3);
-    // a = (Instrucao *)malloc(sizeof(Instrucao) * 1);
-    // a->lado = 1;
-    // a->conteudo = 'e';
-    // a->estado = -1;
-    // a->proximoEstado = 3;
-    fita = (char *) malloc(sizeof(char) * TAMANHO);
+    a = initInstrucao(1, 'a', -1, 3);
+    fita = initFita(TAMANHO, padrao);
 
-    fita = definirPeloPadrao(fita, padrao);
     mostrarInstrucao(a);
     mostrarFitaTuring(fita);
+
     free(fita);
     free(a);
     return 0;
