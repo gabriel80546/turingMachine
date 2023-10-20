@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define TAMANHO 100
+#define TAMANHO 300
 
 typedef struct Instrucao {
     int lado;
@@ -47,7 +47,7 @@ void mostrarInstrucao(Instrucao *inst) {
 
 int main() {
     int i;
-    char padrao = '0';
+    char padrao = '_';
     int posicao = (int)(TAMANHO/2);
     char* fita;
     Instrucao *a;
