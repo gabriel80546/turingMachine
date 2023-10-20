@@ -85,10 +85,10 @@ int main() {
     Instrucao *c1;
 
     a0 = initInstrucao(1, '0', '1', -1, 3);
-    b0 = initInstrucao(1, '0', '1', -1, 3);
-    c0 = initInstrucao(1, '0', '1', -1, 3);
     a1 = initInstrucao(1, '0', '1', -1, 3);
+    b0 = initInstrucao(1, '0', '1', -1, 3);
     b1 = initInstrucao(1, '0', '1', -1, 3);
+    c0 = initInstrucao(1, '0', '1', -1, 3);
     c1 = initInstrucao(1, '0', '1', -1, 3);
     fita = initFita(TAMANHO, padrao);
 
@@ -101,10 +101,10 @@ int main() {
 
     free(fita);
     free(a0);
-    free(b0);
-    free(c0);
     free(a1);
+    free(b0);
     free(b1);
+    free(c0);
     free(c1);
     return 0;
 }
