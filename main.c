@@ -25,6 +25,8 @@ void mostrarFitaTuring(char *fita) {
 void mostrarInstrucao(Instrucao *inst) {
 
     printf("inst = %p\n", inst);
+    
+    // Instrucao *initInstrucao(int lado, char conteudo, int estado, int proximoEstado) {
     printf("inst->conteudo = \'%c\' \n", inst->conteudo);
     return;
 }
@@ -52,7 +54,7 @@ char *initFita(int tamanho, char padrao) {
 
 int main() {
     int i;
-    char padrao = '_';
+    char padrao = '0';
     int posicao = (int)(TAMANHO/2);
     char* fita;
     Instrucao *a;
@@ -61,7 +63,7 @@ int main() {
     fita = initFita(TAMANHO, padrao);
 
     mostrarInstrucao(a);
-    mostrarFitaTuring(fita);
+    // mostrarFitaTuring(fita);
 
     free(fita);
     free(a);
