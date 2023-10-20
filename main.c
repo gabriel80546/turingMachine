@@ -3,6 +3,7 @@
 #include<string.h>
 
 #define TAMANHO 300
+#define QTS_INSTRUCOES 6
 
 typedef struct Instrucao {
     int estado;
@@ -11,6 +12,11 @@ typedef struct Instrucao {
     char escreva;
     int proximoEstado;
 } Instrucao;
+
+// typedef struct Programa {
+//     // Lista de Instrucoes
+// } Programa;
+
 
 void mostrarFitaTuring(char *fita) {
     int i;
@@ -84,16 +90,22 @@ int main() {
     Instrucao *c0;
     Instrucao *c1;
 
-    a0 = initInstrucao(1, '0', '1', -1, 3);
-    a1 = initInstrucao(1, '0', '1', -1, 3);
-    b0 = initInstrucao(1, '0', '1', -1, 3);
-    b1 = initInstrucao(1, '0', '1', -1, 3);
-    c0 = initInstrucao(1, '0', '1', -1, 3);
-    c1 = initInstrucao(1, '0', '1', -1, 3);
+    // Instrucao *atual;
+
+    a0 = initInstrucao(1, '0', '1', 1, 2);
+    a1 = initInstrucao(1, '1', '1', 1, 0);
+    b0 = initInstrucao(1, '0', '0', 2, 3);
+    b1 = initInstrucao(1, '1', '1', 2, 2);
+    c0 = initInstrucao(0, '0', '1', 3, 3);
+    c1 = initInstrucao(0, '1', '1', 3, 1);
     fita = initFita(TAMANHO, padrao);
 
-    mostrarInstrucao(a0);
+    // mostrarInstrucao(a0);
     mostrarFitaTuring(fita);
+
+    // for(i = 0; i < QTS_INSTRUCOES; i++) {
+    //     if (a0->estado == 1)
+    // }
 
     while(1) {
         break;
