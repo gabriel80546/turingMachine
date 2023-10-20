@@ -80,13 +80,17 @@ int main() {
     Instrucao *b;
     Instrucao *c;
 
-    a = initInstrucao(1, '0', 'a', -1, 3);
-    b = initInstrucao(1, '0', 'a', -1, 3);
-    c = initInstrucao(1, '0', 'a', -1, 3);
+    a = initInstrucao(1, '0', '1', -1, 3);
+    b = initInstrucao(1, '0', '1', -1, 3);
+    c = initInstrucao(1, '0', '1', -1, 3);
     fita = initFita(TAMANHO, padrao);
 
     mostrarInstrucao(a);
     mostrarFitaTuring(fita);
+
+    while(1) {
+        break;
+    }
 
     free(fita);
     free(a);
