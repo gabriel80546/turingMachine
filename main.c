@@ -101,7 +101,6 @@ int main() {
     char padrao = '0';
     int posicao = (int)(TAMANHO/2);
     char* fita;
-    Programa *prog;
     Instrucao *a0;
     Instrucao *a1;
     Instrucao *b0;
