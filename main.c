@@ -13,10 +13,13 @@ typedef struct Instrucao {
     int proximoEstado;
 } Instrucao;
 
-// typedef struct Programa {
-//     // Lista de Instrucoes
-// } Programa;
+struct Programa {
+   Instrucao inst;
+   struct Programa *proximaInstrucao;
+};
 
+struct Programa *inicio = NULL;
+struct Programa *atualInst = NULL;
 
 void mostrarFitaTuring(char *fita) {
     int i;
@@ -66,6 +69,21 @@ char *initFita(int tamanho, char padrao) {
     return saida;
 }
 
+
+//insertion at the beginning
+void insertatbegin(Instrucao inst){
+
+   //create a link
+   struct Programa *lk = (struct Programa*) malloc(sizeof(struct Programa));
+   lk->inst = inst;
+
+   // point it to old first node
+   lk->proximaInstrucao = atualInst;
+
+   //point first to new first node
+   atualInst = lk;
+}
+
 // typedef struct Instrucao {
 //     int estado;
 //     int lado; // 0 esquerda, 1 direita
@@ -83,6 +101,7 @@ int main() {
     char padrao = '0';
     int posicao = (int)(TAMANHO/2);
     char* fita;
+    Programa *prog;
     Instrucao *a0;
     Instrucao *a1;
     Instrucao *b0;
