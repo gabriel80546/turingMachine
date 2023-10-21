@@ -125,7 +125,10 @@ int main() {
     //     if (a0->estado == 1)
     // }
 
-    while(1) {
+    Instrucao *atual;
+
+    atual = a0;
+    while(atual->estado != 0) {
         break;
     }
 
