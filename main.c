@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define TAMANHO 300
+#define TAMANHO 30
 #define QTS_INSTRUCOES 6
 
 typedef struct Instrucao {
@@ -140,7 +140,84 @@ int main() {
         printf("atualEstado = %i\n", atualEstado);
 
 
-        if(atualLeitura != atualLeitura) {
+        if(atualLeitura == a0->leia && atualEstado == a0->estado) {
+            printf("atualLeitura == a0->leia && atualEstado == a0->estado\n");
+            fita[posicao] = a0->escreva;
+            if(a0->lado == 1) {
+                posicao++;
+            } else if (a0->lado == 0) {
+                posicao--;
+            } else {
+                printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", a0, a0, a0->lado);
+                exit(1);
+            }
+            atualEstado = a0->proximoEstado;
+            // atualLeitura = fita[posicao];
+        } else if(atualLeitura == a1->leia && atualEstado == a1->estado) {
+            printf("atualLeitura == a1->leia && atualEstado == a1->estado\n");
+            fita[posicao] = a1->escreva;
+            if(a1->lado == 1) {
+                posicao++;
+            } else if (a1->lado == 0) {
+                posicao--;
+            } else {
+                printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", a1, a1, a1->lado);
+                exit(1);
+            }
+            atualEstado = a1->proximoEstado;
+            // atualLeitura = fita[posicao];
+        } else if(atualLeitura == b0->leia && atualEstado == b0->estado) {
+            printf("atualLeitura == b0->leia && atualEstado == b0->estado\n");
+            fita[posicao] = b0->escreva;
+            if(b0->lado == 1) {
+                posicao++;
+            } else if (b0->lado == 0) {
+                posicao--;
+            } else {
+                printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", b0, b0, b0->lado);
+                exit(1);
+            }
+            atualEstado = b0->proximoEstado;
+            // atualLeitura = fita[posicao];
+        } else if(atualLeitura == b1->leia && atualEstado == b1->estado) {
+            printf("atualLeitura == b1->leia && atualEstado == b1->estado\n");
+            fita[posicao] = b1->escreva;
+            if(b1->lado == 1) {
+                posicao++;
+            } else if (b1->lado == 0) {
+                posicao--;
+            } else {
+                printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", b1, b1, b1->lado);
+                exit(1);
+            }
+            atualEstado = b1->proximoEstado;
+            // atualLeitura = fita[posicao];
+        } else if(atualLeitura == c0->leia && atualEstado == c0->estado) {
+            printf("atualLeitura == c0->leia && atualEstado == c0->estado\n");
+            fita[posicao] = c0->escreva;
+            if(c0->lado == 1) {
+                posicao++;
+            } else if (c0->lado == 0) {
+                posicao--;
+            } else {
+                printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", c0, c0, c0->lado);
+                exit(1);
+            }
+            atualEstado = c0->proximoEstado;
+            // atualLeitura = fita[posicao];
+        } else if(atualLeitura == c1->leia && atualEstado == c1->estado) {
+            printf("atualLeitura == c1->leia && atualEstado == c1->estado\n");
+            fita[posicao] = c1->escreva;
+            if(c1->lado == 1) {
+                posicao++;
+            } else if (c1->lado == 0) {
+                posicao--;
+            } else {
+                printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", c1, c1, c1->lado);
+                exit(1);
+            }
+            atualEstado = c1->proximoEstado;
+            // atualLeitura = fita[posicao];
         } else {
             printf("Erro, atualEstado = %i, atualLeitura = \'%c\', tipo não encontrado ou leitura não encontrada\n", atualEstado, atualLeitura);
             free(fita);
@@ -157,6 +234,9 @@ int main() {
             break;
         }
         i++;
+    }
+    if(atual->estado == 0) {
+        printf("Maquina de Turing finalizada com sucesso\n");
     }
 
     free(fita);
