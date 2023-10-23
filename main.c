@@ -130,12 +130,15 @@ int main() {
     Instrucao *atual;
 
     atual = a0;
+    atualEstado = a0->estado;
     i = 0;
-    while(atual->estado != 0) {
+    mostrarFitaTuring(fita);
+    while(atualEstado != 0) {
 
-        atualEstado = atual->estado;
+        // atualEstado = atual->estado;
         atualLeitura = fita[posicao];
 
+        printf("posicao = %i\n", posicao);
         printf("atualLeitura = \'%c\'\n", atualLeitura);
         printf("atualEstado = %i\n", atualEstado);
 
@@ -151,7 +154,9 @@ int main() {
                 printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", a0, a0, a0->lado);
                 exit(1);
             }
+            printf("atualEstado = %i; a0->proximoEstado = %i\n", atualEstado, a0->proximoEstado);
             atualEstado = a0->proximoEstado;
+            printf("atualEstado = %i; a0->proximoEstado = %i\n", atualEstado, a0->proximoEstado);
             // atualLeitura = fita[posicao];
         } else if(atualLeitura == a1->leia && atualEstado == a1->estado) {
             printf("atualLeitura == a1->leia && atualEstado == a1->estado\n");
