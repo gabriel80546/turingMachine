@@ -134,7 +134,7 @@ int main() {
     i = 0;
     mostrarFitaTuring(fita);
     while(atualEstado != 0) {
-
+        printf("passo = %i\n", (i + 1));
         // atualEstado = atual->estado;
         atualLeitura = fita[posicao];
 
@@ -154,10 +154,7 @@ int main() {
                 printf("Erro: Instrucao %p->lado nao eh nem 1 nem 0; %p->lado = %i\n", a0, a0, a0->lado);
                 exit(1);
             }
-            printf("atualEstado = %i; a0->proximoEstado = %i\n", atualEstado, a0->proximoEstado);
             atualEstado = a0->proximoEstado;
-            printf("atualEstado = %i; a0->proximoEstado = %i\n", atualEstado, a0->proximoEstado);
-            // atualLeitura = fita[posicao];
         } else if(atualLeitura == a1->leia && atualEstado == a1->estado) {
             printf("atualLeitura == a1->leia && atualEstado == a1->estado\n");
             fita[posicao] = a1->escreva;
@@ -170,7 +167,6 @@ int main() {
                 exit(1);
             }
             atualEstado = a1->proximoEstado;
-            // atualLeitura = fita[posicao];
         } else if(atualLeitura == b0->leia && atualEstado == b0->estado) {
             printf("atualLeitura == b0->leia && atualEstado == b0->estado\n");
             fita[posicao] = b0->escreva;
@@ -183,7 +179,6 @@ int main() {
                 exit(1);
             }
             atualEstado = b0->proximoEstado;
-            // atualLeitura = fita[posicao];
         } else if(atualLeitura == b1->leia && atualEstado == b1->estado) {
             printf("atualLeitura == b1->leia && atualEstado == b1->estado\n");
             fita[posicao] = b1->escreva;
@@ -196,7 +191,6 @@ int main() {
                 exit(1);
             }
             atualEstado = b1->proximoEstado;
-            // atualLeitura = fita[posicao];
         } else if(atualLeitura == c0->leia && atualEstado == c0->estado) {
             printf("atualLeitura == c0->leia && atualEstado == c0->estado\n");
             fita[posicao] = c0->escreva;
@@ -209,7 +203,6 @@ int main() {
                 exit(1);
             }
             atualEstado = c0->proximoEstado;
-            // atualLeitura = fita[posicao];
         } else if(atualLeitura == c1->leia && atualEstado == c1->estado) {
             printf("atualLeitura == c1->leia && atualEstado == c1->estado\n");
             fita[posicao] = c1->escreva;
@@ -222,7 +215,6 @@ int main() {
                 exit(1);
             }
             atualEstado = c1->proximoEstado;
-            // atualLeitura = fita[posicao];
         } else {
             printf("Erro, atualEstado = %i, atualLeitura = \'%c\', tipo não encontrado ou leitura não encontrada\n", atualEstado, atualLeitura);
             free(fita);
@@ -235,12 +227,12 @@ int main() {
             exit(2);
         }
         mostrarFitaTuring(fita);
-        if (i > 3) {
+        if (i > 1000) {
             break;
         }
         i++;
     }
-    if(atual->estado == 0) {
+    if(atualEstado == 0) {
         printf("Maquina de Turing finalizada com sucesso\n");
     }
 
