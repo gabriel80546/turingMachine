@@ -100,6 +100,8 @@ int main() {
     int i;
     char padrao = '0';
     int posicao = (int)(TAMANHO/2);
+    int atualEstado = 0;
+    char atualLeitura = '\0';
     char* fita;
     Instrucao *a0;
     Instrucao *a1;
@@ -119,7 +121,7 @@ int main() {
     fita = initFita(TAMANHO, padrao);
 
     // mostrarInstrucao(a0);
-    mostrarFitaTuring(fita);
+    // mostrarFitaTuring(fita);
 
     // for(i = 0; i < QTS_INSTRUCOES; i++) {
     //     if (a0->estado == 1)
@@ -128,8 +130,33 @@ int main() {
     Instrucao *atual;
 
     atual = a0;
+    i = 0;
     while(atual->estado != 0) {
-        break;
+
+        atualEstado = atual->estado;
+        atualLeitura = fita[posicao];
+
+        printf("atualLeitura = \'%c\'\n", atualLeitura);
+        printf("atualEstado = %i\n", atualEstado);
+
+
+        if(atualLeitura != atualLeitura) {
+        } else {
+            printf("Erro, atualEstado = %i, atualLeitura = \'%c\', tipo não encontrado ou leitura não encontrada\n", atualEstado, atualLeitura);
+            free(fita);
+            free(a0);
+            free(a1);
+            free(b0);
+            free(b1);
+            free(c0);
+            free(c1);
+            exit(2);
+        }
+        mostrarFitaTuring(fita);
+        if (i > 3) {
+            break;
+        }
+        i++;
     }
 
     free(fita);
